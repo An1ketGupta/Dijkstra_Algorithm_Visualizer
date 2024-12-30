@@ -34,13 +34,11 @@ This project serves as an excellent demonstration of **Dijkstra's Algorithm** in
 - **Visual Clarity**: Enhanced clarity with edge and path thickness adjustments, color-coding, and semi-transparent labels for weights.
 - **Real-Time Updates**: Optimized the algorithm's integration with the graphical interface for smooth and dynamic updates as the user interacts.
 
-## Installation
+# To run the file on your local system : 
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/dijkstra-visualizer.git
-Overview
-This project involves the development of a Python-based interactive visualizer for Dijkstra's Algorithm. It demonstrates the shortest path algorithm's functionality in a graphical and intuitive manner, making it a useful educational tool for understanding graph theory and algorithmic problem-solving.
+Requirements : 
+- Have a version of python > `3.12.4`.
+- Install pygame in the terminal.
 
 Key Features
 
