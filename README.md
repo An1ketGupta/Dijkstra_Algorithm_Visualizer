@@ -1,3 +1,4 @@
+
 # Dijkstra's Algorithm Interactive Visualizer
 
 This project involves the development of a Python-based interactive visualizer for **Dijkstra's Algorithm**. It demonstrates the shortest path algorithm's functionality in a graphical and intuitive manner, making it a useful educational tool for understanding graph theory and algorithmic problem-solving.
@@ -12,7 +13,7 @@ This project involves the development of a Python-based interactive visualizer f
 
 Image from the sample inputs :
 
-![image]()
+![Screenshot 2024-12-30 234314](https://github.com/user-attachments/assets/7fff6dc4-279d-4699-99bb-5e6aee577dce)
 
 ## Technical Highlights
 
