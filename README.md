@@ -1,4 +1,3 @@
-# Graph-Visualiser-for-Dijkstra-s-Algorithm
 import pygame
 import sys
 from queue import PriorityQueue
@@ -44,7 +43,7 @@ edges = {
 }
 
 class InputBox:
-    def init(self, x, y, w, h, text=''):
+    def _init_(self, x, y, w, h, text=''):
         self.rect = pygame.Rect(x, y, w, h)
         self.color = BLACK
         self.text = text
@@ -71,14 +70,14 @@ class InputBox:
                     self.txt_surface = self.font.render(self.text, True, self.color)
                     return temp
                 elif event.key == pygame.K_BACKSPACE:
-                    self.text = ''
+                    self.text = self.text[:-1]
                     self.txt_surface = self.font.render(self.text, True, self.color)
                 else:
                     key_char = event.unicode.upper()
                     if key_char in 'ABCDEF' and len(self.text) < 1:
                         self.text = key_char
                         self.txt_surface = self.font.render(self.text, True, self.color)
-                        return self.text
+                return self.text
         return None
 
     def draw(self, screen):
@@ -109,20 +108,17 @@ def dijkstra(graph, start, end):
     
     path = []
     current = end
-    while previous[current] is not None:
+    while current is not None:
         path.append(current)
         current = previous[current]
-    path.append(start)
     path.reverse()
     return path, distances[end]
 
 def draw_weight_label(screen, weight, x, y):
-    # Create weight label with background
     font = pygame.font.Font(None, FONT_SIZE)
     text = font.render(str(weight), True, TEXT_COLOR)
     text_rect = text.get_rect(center=(x, y))
     
-    # Draw semi-transparent background
     padding = 4
     bg_rect = pygame.Rect(text_rect.x - padding, text_rect.y - padding,
                          text_rect.width + 2*padding, text_rect.height + 2*padding)
@@ -139,21 +135,16 @@ def draw_graph(screen):
         x1, y1 = nodes[node1]
         x2, y2 = nodes[node2]
         
-        # Draw edge
         pygame.draw.line(screen, EDGE_COLOR, (x1, y1), (x2, y2), EDGE_THICKNESS)
         
-        # Draw weight with background
         mid_x = (x1 + x2) // 2
         mid_y = (y1 + y2) // 2
         draw_weight_label(screen, weight, mid_x, mid_y)
     
     # Draw nodes with border
     for node, (x, y) in nodes.items():
-        # Draw node border
         pygame.draw.circle(screen, NODE_BORDER_COLOR, (x, y), RADIUS + 2)
-        # Draw node
         pygame.draw.circle(screen, NODE_COLOR, (x, y), RADIUS)
-        # Draw node label
         font = pygame.font.Font(None, FONT_SIZE)
         text = font.render(node, True, WHITE)
         text_rect = text.get_rect(center=(x, y))
@@ -168,7 +159,6 @@ def draw_path(screen, path):
         pygame.draw.line(screen, PATH_COLOR, (x1, y1), (x2, y2), PATH_THICKNESS)
 
 def draw_info_panel(screen, start_box, end_box, path=None, distance=None):
-    # Create info panel with fixed height
     panel_height = 120
     info_rect = pygame.Rect(10, HEIGHT - panel_height - 10, WIDTH - 20, panel_height)
     pygame.draw.rect(screen, INFO_BG_COLOR, info_rect)
@@ -178,7 +168,6 @@ def draw_info_panel(screen, start_box, end_box, path=None, distance=None):
     y_start = HEIGHT - panel_height + 10
     line_height = 30
     
-    # Draw prompts and boxes
     start_text = font.render("Start node (A-F):", True, TEXT_COLOR)
     screen.blit(start_text, (20, y_start))
     start_box.rect.y = y_start
@@ -228,15 +217,16 @@ def main():
             start_result = start_box.handle_event(event)
             end_result = end_box.handle_event(event)
             
-            if start_result in nodes and end_result in nodes:
+            if start_result and end_result and start_result in nodes and end_result in nodes:
                 path, distance = dijkstra(graph, start_result, end_result)
-            elif start_result in nodes and end_box.text in nodes:
+            elif start_result and end_box.text in nodes:
                 path, distance = dijkstra(graph, start_result, end_box.text)
-            elif start_box.text in nodes and end_result in nodes:
+            elif start_box.text in nodes and end_result:
                 path, distance = dijkstra(graph, start_box.text, end_result)
         
         draw_graph(screen)
-        draw_path(screen, path)
+        if path:
+            draw_path(screen, path)
         draw_info_panel(screen, start_box, end_box, path, distance)
         
         pygame.display.flip()
@@ -244,5 +234,5 @@ def main():
     
     pygame.quit()
 
-if name == "main":
+if _name_ == "_main_":
     main()
