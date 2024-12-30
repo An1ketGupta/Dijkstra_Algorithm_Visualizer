@@ -40,14 +40,6 @@ Requirements :
 - Have a version of python > `3.12.4`.
 - Install pygame in the terminal.
 
-
-Programming Language: Python
-Libraries Used: Pygame for graphical user interface and visualization, PriorityQueue from the queue module for algorithm implementation.
-Optimized Node Placement: Predefined node positions ensure a neat and intuitive layout of the graph.
-Real-Time Feedback: The application dynamically updates the graph and path information based on user input.
-Educational Value
-This project serves as an excellent demonstration of Dijkstra's Algorithm in action, showcasing its application in solving shortest-path problems on weighted graphs. The visual approach aids in understanding the step-by-step process and decision-making involved in the algorithm.
-
 Challenges and Solutions
 
 Ensured seamless user interaction by handling edge cases for invalid or incomplete inputs.
