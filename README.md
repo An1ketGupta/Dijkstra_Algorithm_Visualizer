@@ -40,14 +40,6 @@ Requirements :
 - Have a version of python > `3.12.4`.
 - Install pygame in the terminal.
 
-Key Features
-
-Graphical Representation: Nodes and edges are visually rendered using Pygame, showcasing the relationships and weights in the graph.
-Interactive Input: Users can specify start and end nodes via input boxes, enabling dynamic calculation of the shortest path.
-Path Visualization: The shortest path is highlighted with a distinct color and thickness for better clarity.
-Enhanced UI Design: Improved aesthetics through a polished color scheme, semi-transparent weight labels, and structured layout for better user experience.
-Algorithm Implementation: The Dijkstra's Algorithm is implemented using a priority queue for efficient computation of shortest paths.
-Technical Highlights
 
 Programming Language: Python
 Libraries Used: Pygame for graphical user interface and visualization, PriorityQueue from the queue module for algorithm implementation.
