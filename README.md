@@ -10,6 +10,10 @@ This project involves the development of a Python-based interactive visualizer f
 - **Enhanced UI Design**: Improved aesthetics through a polished color scheme, semi-transparent weight labels, and structured layout for better user experience.
 - **Algorithm Implementation**: The Dijkstra's Algorithm is implemented using a priority queue for efficient computation of shortest paths.
 
+Image from the sample inputs :
+
+![image]()
+
 ## Technical Highlights
 
 - **Programming Language**: Python
